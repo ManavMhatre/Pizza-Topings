@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Pizza App by Manav</title>
+    <style>
+        * {font-size: 50px; font-family: Arial;}
+        body {background-color:cyan;}
+        h1 {background-color:black; color:white;width:60%;border-radius:40px;}
+        input[type=checkbox] {width:3.5%;height:3.5%;}
+    </style>
+    <script>
+        function show(event)
+        {
+            event.preventDefault();
+            let name = document.getElementById("id_name").value;
+            let msg = document.getElementById("id_msg");
+            let cheese = document.getElementById("id_cheese");
+            let tomato = document.getElementById("id_tomato");
+            let onion = document.getElementById("id_onion");
+            let corn = document.getElementById("id_corn");
+
+            let toppings = "";
+            if (cheese.checked) toppings += "Cheese ";
+            if (tomato.checked) toppings += "Tomato ";
+            if (onion.checked) toppings += "Onion ";
+            if (corn.checked) toppings += "Corn ";
+
+            let ans = "Name: " + name + "<br>Toppings: " + toppings;
+            msg.innerHTML = ans;
+        }
+    </script>
+</head>
+<body>
+<center>
+    <h1> Pizza App </h1>
+    <form onsubmit="show(event)">
+        <input type="text" placeholder="Enter your name" id="id_name"/>
+        <br><br>
+        <input type="checkbox" id="id_cheese"/>Cheese
+        <input type="checkbox" id="id_tomato"/>Tomato
+        <input type="checkbox" id="id_onion"/>Onion
+        <input type="checkbox" id="id_corn"/>Corn
+        <br><br>
+        <input type="submit" value="Order"/>
+    </form>
+    <h2 id="id_msg"></h2>
+</center>
+</body>
+</html>
